@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Murali Prasanth D · Backend Developer &amp; Malware Analyst</title>
+<meta name="description" content="Murali Prasanth D builds the storage, analysis and automation systems behind malware intelligence: millions of files, 1 TB+ of samples, pipelines that stay fast and reliable.">
+<meta name="author" content="Murali Prasanth D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Murali Prasanth D · Backend Developer &amp; Malware Analyst">
+<meta property="og:description" content="Backend systems for malware intelligence: large-scale storage, static analysis, automation pipelines and third-party integrations.">
+<meta property="og:url" content="https://muraliprasanth.github.io/">
+<meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1113" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://muraliprasanth.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f6b52'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='700' text-anchor='middle' fill='%23fff'%3EMP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Murali Prasanth D","jobTitle":"Backend Developer and Malware Analyst","worksFor":{"@type":"Organization","name":"Zoho Corporation"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Dr. Mahalingam College of Engineering and Technology"},"address":{"@type":"PostalAddress","addressLocality":"Chennai","addressCountry":"IN"},"url":"https://muraliprasanth.github.io/","sameAs":["https://www.linkedin.com/in/muraliprasanthd/","https://leetcode.com/u/muraliprasanthd07/","https://github.com/muraliprasanth"]}
+</script>
+<style>
+:root{
+  --bg:#f7f6f2; --surface:#ffffff; --ink:#16181d; --muted:#5a606c; --line:#e1ded5;
+  --accent:#0f6b52; --accent-ink:#ffffff; --accent-soft:#e1f0e9; --grid:rgba(22,24,29,.045);
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1113; --surface:#151a1d; --ink:#e8ebee; --muted:#98a1ab; --line:#262d32;
+  --accent:#5fd3a6; --accent-ink:#06261a; --accent-soft:#12291f; --grid:rgba(232,235,238,.04); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1113; --surface:#151a1d; --ink:#e8ebee; --muted:#98a1ab; --line:#262d32;
+  --accent:#5fd3a6; --accent-ink:#06261a; --accent-soft:#12291f; --grid:rgba(232,235,238,.04); color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--sans);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+a{color:inherit;text-decoration-color:var(--accent);text-underline-offset:.2em}
+a:hover{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--accent-ink);padding:.5rem .9rem;z-index:20}
+.skip:focus{left:1rem;top:1rem}
+.wrap{max-width:68rem;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.mono{font-family:var(--mono)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:1rem;height:3.6rem}
+.brand{font:500 14px var(--mono);text-decoration:none;display:flex;align-items:center;gap:.55rem;white-space:nowrap}
+.brand i{width:.55rem;height:.55rem;border-radius:50%;background:var(--accent);display:inline-block}
+.top nav{margin-left:auto;display:flex;gap:1.3rem;font:500 14px var(--sans)}
+.top nav a{text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--ink)}
+.theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:2.2rem;height:2.2rem;border-radius:8px;cursor:pointer;font-size:15px;line-height:1;flex:none}
+@media (max-width:720px){.top nav{display:none}.theme{margin-left:auto}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(2rem,5vw,4rem);align-items:center;padding:clamp(3rem,8vw,6rem) 0 clamp(2.5rem,6vw,4.5rem)}
+.eyebrow{font:500 13px var(--mono);color:var(--accent);letter-spacing:.04em;margin:0 0 1.1rem}
+h1{font:700 clamp(2.4rem,6.2vw,4.3rem)/1.04 var(--sans);letter-spacing:-.03em;margin:0 0 1.3rem;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--muted);max-width:38rem;margin:0 0 2rem}
+.lede b{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font:600 15px var(--sans);text-decoration:none;padding:.72rem 1.15rem;border-radius:9px;border:1px solid var(--line);background:var(--surface)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{color:var(--accent-ink);filter:brightness(1.08)}
+.btn:hover{border-color:var(--accent)}
+
+/* profile card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 1px 0 var(--line),0 24px 48px -32px rgba(0,0,0,.35)}
+.card-head{display:flex;align-items:center;gap:.4rem;padding:.65rem .9rem;border-bottom:1px solid var(--line);font:500 12px var(--mono);color:var(--muted)}
+.card-head span{width:.6rem;height:.6rem;border-radius:50%;background:var(--line)}
+.card-head b{margin-left:.5rem;font-weight:500}
+.avatar{aspect-ratio:1/1;width:100%;display:grid;place-items:center;background:
+  radial-gradient(circle at 30% 25%,var(--accent-soft),transparent 60%),var(--bg);border-bottom:1px solid var(--line)}
+.avatar svg{width:46%;height:auto}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.kv{margin:0;padding:.9rem 1rem 1rem;display:grid;grid-template-columns:auto 1fr;gap:.35rem .9rem;font:400 13px/1.5 var(--mono)}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;overflow-wrap:anywhere}
+.kv .ok{color:var(--accent)}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.card{max-width:22rem}}
+
+/* sections */
+section{padding:clamp(2.5rem,6vw,4.5rem) 0;border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:1rem;margin:0 0 2rem}
+.sec-head .n{font:500 13px var(--mono);color:var(--accent)}
+h2{font:700 clamp(1.6rem,3.2vw,2.2rem)/1.15 var(--sans);letter-spacing:-.02em;margin:0;text-wrap:balance}
+h3{font:600 1.08rem/1.3 var(--sans);margin:0}
+p{margin:0 0 1rem}
+
+/* impact */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.stat{background:var(--surface);padding:1.4rem 1.3rem 1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.stat .v{font:700 clamp(1.7rem,3vw,2.3rem)/1.05 var(--sans);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .v small{font:500 .55em var(--mono);color:var(--muted);letter-spacing:0}
+.stat .l{color:var(--muted);font-size:.93rem;line-height:1.5}
+.stat .w{font:500 11px var(--mono);color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-top:auto;padding-top:.5rem}
+@media (max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.stats{grid-template-columns:1fr}}
+
+/* about / focus */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3.5rem)}
+.two .big{font-size:1.14rem;line-height:1.7}
+.focus{display:grid;gap:.9rem;margin:0;padding:0;list-style:none}
+.focus li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.1rem}
+.focus p{margin:.3rem 0 0;color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+
+/* experience */
+.job{display:grid;grid-template-columns:13rem minmax(0,1fr);gap:1rem 2.5rem;padding:1.8rem 0;border-top:1px dashed var(--line)}
+.job:first-of-type{border-top:0;padding-top:0}
+.when{font:500 13px/1.6 var(--mono);color:var(--muted)}
+.when b{display:block;color:var(--ink);font-weight:500}
+.job h3{font-size:1.25rem}
+.role{color:var(--muted);margin:.15rem 0 .9rem;font-size:.98rem}
+.job h4{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:1.3rem 0 .6rem}
+.job ul{margin:0;padding-left:1.1rem;display:grid;gap:.55rem}
+.job li::marker{color:var(--accent)}
+.job li b{font-weight:600}
+.tags,.job ul.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem;padding:0;list-style:none}
+.tags li{font:400 12.5px var(--mono);padding:.22rem .55rem;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--muted)}
+@media (max-width:760px){.job{grid-template-columns:1fr;gap:.5rem}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.1rem 1.15rem}
+.skill h3{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem}
+.skill .tags{margin-top:0}
+.skill .tags li{color:var(--ink)}
+@media (max-width:980px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.skills{grid-template-columns:1fr}}
+
+/* education + certs */
+.edu{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.3rem 1.4rem}
+.edu p{margin:.2rem 0 0;color:var(--muted)}
+.edu .when{text-align:right}
+.certs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.1rem 2.5rem}
+.certs li{padding:.85rem 0;border-bottom:1px dashed var(--line);display:flex;flex-direction:column}
+.certs span{color:var(--muted);font-size:.92rem}
+@media (max-width:700px){.certs{grid-template-columns:1fr}.edu .when{text-align:left}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:start}
+.contact .big{font:700 clamp(1.5rem,3.4vw,2.3rem)/1.2 var(--sans);letter-spacing:-.02em;margin:0;text-wrap:balance}
+.links{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.links a{display:flex;justify-content:space-between;gap:1rem;padding:.95rem .2rem;border-bottom:1px solid var(--line);text-decoration:none}
+.links span{font:400 13px var(--mono);color:var(--muted);overflow-wrap:anywhere;text-align:right}
+.links a:hover span{color:var(--accent)}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:1.6rem 0 2.4rem;color:var(--muted);font:400 12.5px var(--mono)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.top,.theme,.cta{display:none}body{background:#fff}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><i aria-hidden="true"></i>murali prasanth d</a>
+    <nav aria-label="Sections">
+      <a href="#impact">Impact</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Switch between light and dark theme" title="Light / dark">◐</button>
+  </div>
+</header>
+
+<main id="main">
+<div class="wrap" id="top">
+
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Backend developer · Malware analyst · Chennai, India</p>
+      <h1>I build the backend systems behind <em>malware intelligence</em>.</h1>
+      <p class="lede">I'm <b>Murali Prasanth D</b>, a member of technical staff in Zoho's Central Cyber Security Team. I design the storage, static-analysis and automation pipelines that take in <b>millions of files</b> and keep <b>1&nbsp;TB+ of malware samples</b> searchable, safe and fast to process.</p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:muraliprasanthd@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/muraliprasanthd/" rel="me noopener">LinkedIn ↗</a>
+        <a class="btn" href="#experience">See my work</a>
+      </div>
+    </div>
+
+    <aside class="card" aria-label="Profile summary">
+      <div class="card-head" aria-hidden="true"><span></span><span></span><span></span><b>profile.report</b></div>
+      <div class="avatar">
+        <!-- PHOTO: replace this svg with <img src="assets/photo.jpg" alt="Murali Prasanth D" width="640" height="640"> -->
+        <svg viewBox="0 0 120 120" role="img" aria-label="Monogram MP">
+          <rect x="4" y="4" width="112" height="112" rx="26" fill="none" stroke="var(--accent)" stroke-width="3"/>
+          <text x="60" y="76" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="44" font-weight="500" fill="var(--accent)">MP</text>
+        </svg>
+      </div>
+      <dl class="kv">
+        <dt>name</dt><dd>Murali Prasanth D</dd>
+        <dt>role</dt><dd>Backend Developer &amp; Malware Analyst</dd>
+        <dt>team</dt><dd>Zoho · Central Cyber Security</dd>
+        <dt>stack</dt><dd>Java · Python · MySQL · C#</dd>
+        <dt>since</dt><dd>2021</dd>
+        <dt>verdict</dt><dd class="ok">clean · 0 detections ✓</dd>
+      </dl>
+    </aside>
+  </div>
+
+  <section id="impact" aria-labelledby="h-impact">
+    <div class="sec-head"><span class="n">01</span><h2 id="h-impact">Impact, in numbers</h2></div>
+    <div class="stats">
+      <div class="stat">
+        <div class="v">40 <small>→</small> 14 <small>days</small></div>
+        <div class="l">AV engine upgrade turnaround, after I automated the upgrade process end to end.</div>
+        <div class="w">Zoho · security</div>
+      </div>
+      <div class="stat">
+        <div class="v">1 TB+</div>
+        <div class="l">Malware data flowing through the object-storage pipeline I built and run, across millions of files.</div>
+        <div class="w">Zoho · security</div>
+      </div>
+      <div class="stat">
+        <div class="v">50%</div>
+        <div class="l">Fewer online-payment support tickets, by fixing critical bugs and automating payment-status handling.</div>
+        <div class="w">Zoho Expense</div>
+      </div>
+      <div class="stat">
+        <div class="v">95%</div>
+        <div class="l">Less manual processing time, with in-house RPA tools syncing a distribution system to an omni-channel ERP.</div>
+        <div class="w">Gofrugal</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="h-about">
+    <div class="sec-head"><span class="n">02</span><h2 id="h-about">What I do</h2></div>
+    <div class="two">
+      <div>
+        <p class="big">I've spent four-plus years writing backend software, moving from Windows billing clients and payment workflows to the systems a security team relies on every day.</p>
+        <p>Today my work sits where backend engineering meets malware analysis: large-scale file storage, static analysis, automation pipelines and third-party integrations, built for high throughput with a focus on performance, reliability and clean design.</p>
+        <p>I study malware behaviour and security systems to make defensive architecture stronger, and I'm most drawn to system design, distributed systems and resilient backend infrastructure.</p>
+      </div>
+      <ul class="focus">
+        <li><h3>Malware-intelligence backends</h3><p>Scalable services and APIs for threat-intelligence workflows: ingest, store, analyse and retrieve samples at volume.</p></li>
+        <li><h3>Automation that removes waiting</h3><p>Pipelines and tooling that turn multi-week manual processes into repeatable, monitored runs.</p></li>
+        <li><h3>Integrations that respect quotas</h3><p>Paid third-party APIs wired with fail-fast handling and efficient polling, so every call is worth its cost.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="h-exp">
+    <div class="sec-head"><span class="n">03</span><h2 id="h-exp">Experience</h2></div>
+
+    <article class="job">
+      <div class="when"><b>Jul 2023 – Present</b>Chennai, India</div>
+      <div>
+        <h3>Zoho Corporation</h3>
+        <p class="role">Member Technical Staff · Backend Developer &amp; Malware Analyst</p>
+        <h4>Central Cyber Security Team</h4>
+        <ul>
+          <li>Build and own backend systems for <b>large-scale malware storage, static analysis, automation pipelines and third-party integrations</b>, and design scalable APIs for threat-intelligence workflows.</li>
+          <li>Process and manage <b>high-volume malware datasets of millions of files</b>, keeping analysis pipelines efficient and reliable.</li>
+          <li><b>Automated the AV engine upgrade process</b>, cutting turnaround from 40 days to 2 weeks.</li>
+          <li>Built and manage the <b>object-storage flow</b> that now holds 1 TB+ of malware data, with optimised storage, retrieval and processing.</li>
+          <li>Tuned <b>paid API integrations</b> with fail-fast mechanisms and efficient polling strategies, reducing quota usage.</li>
+        </ul>
+        <h4>Earlier at Zoho</h4>
+        <ul>
+          <li><b>Zoho Expense:</b> worked on online reimbursements and payment workflows for Zoho's expense and trip-management product, and <b>reduced online-payment tickets by 50%</b> through critical bug fixes and automated payment-status handling.</li>
+          <li><b>Distribution &amp; accounting software:</b> shipped features in a VB6 and SQL Server product, including an add-on tool for bulk data import.</li>
+          <li><b>Zoho RPA:</b> delivered no-code automation at customer sites, resolving long-standing customer requirements.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies"><li>Java</li><li>MySQL</li><li>Python</li><li>Object storage</li><li>REST APIs</li><li>Static analysis</li></ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when"><b>Jul 2022 – Jun 2023</b>Chennai, India</div>
+      <div>
+        <h3>Gofrugal Technologies</h3>
+        <p class="role">Member Technical Staff · C# Developer</p>
+        <ul>
+          <li>Developed a <b>Windows billing client</b> across UI and business logic, delivering features for the Distribution and Retail verticals on both server and client side.</li>
+          <li>Built in-house <b>RPA tools in Python over REST APIs</b> to export, validate and import sales, purchases and sales returns from a Distribution Management System into an omni-channel ERP, <b>cutting manual processing time by 95%</b>.</li>
+          <li>Documented WPF and Python project features to improve clarity and maintainability.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies"><li>C#</li><li>WPF</li><li>SQL Server</li><li>Python</li><li>REST APIs</li></ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when"><b>Jun 2021 – Jun 2022</b>Chennai, India</div>
+      <div>
+        <h3>Gofrugal Technologies</h3>
+        <p class="role">Intern · Member Technical Staff (C# Developer)</p>
+        <ul>
+          <li>Migrated distribution features from a <b>legacy Visual Basic application to WPF</b>, delivering a next-generation UI.</li>
+          <li>Developed the upgraded Windows billing client on the <b>WPF framework (MVVM)</b> with SQLite and LINQ.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies"><li>C#</li><li>WPF (MVVM)</li><li>SQLite</li><li>LINQ</li><li>SQL Server</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="skills" aria-labelledby="h-skills">
+    <div class="sec-head"><span class="n">04</span><h2 id="h-skills">Skills</h2></div>
+    <div class="skills">
+      <div class="skill"><h3>Languages</h3><ul class="tags"><li>Java</li><li>Python</li><li>C#</li><li>C</li><li>JavaScript (basics)</li></ul></div>
+      <div class="skill"><h3>Databases</h3><ul class="tags"><li>MySQL</li><li>SQL Server</li><li>SQLite</li></ul></div>
+      <div class="skill"><h3>Security</h3><ul class="tags"><li>Static malware analysis</li><li>AV engine pipelines</li><li>Threat-intel integrations</li></ul></div>
+      <div class="skill"><h3>Backend &amp; automation</h3><ul class="tags"><li>REST API design</li><li>Object storage</li><li>Automation pipelines</li><li>RPA</li></ul></div>
+      <div class="skill"><h3>Frameworks &amp; libraries</h3><ul class="tags"><li>WPF (MVVM)</li><li>Spring Boot (basics)</li><li>Selenium</li><li>Pandas</li><li>Tkinter</li><li>PyQt</li></ul></div>
+      <div class="skill"><h3>Engineering practice</h3><ul class="tags"><li>OOP</li><li>SOLID</li><li>Design patterns</li><li>DSA</li></ul></div>
+      <div class="skill"><h3>Tools</h3><ul class="tags"><li>IntelliJ</li><li>VS Code</li><li>Visual Studio</li><li>Git</li><li>Postman</li><li>SSMS</li><li>Sublime Merge</li></ul></div>
+      <div class="skill"><h3>Currently deepening</h3><ul class="tags"><li>System design</li><li>Distributed systems</li><li>Resilient infrastructure</li></ul></div>
+    </div>
+  </section>
+
+  <section id="education" aria-labelledby="h-edu">
+    <div class="sec-head"><span class="n">05</span><h2 id="h-edu">Education &amp; certifications</h2></div>
+    <div class="edu">
+      <div>
+        <h3>Dr. Mahalingam College of Engineering and Technology</h3>
+        <p>Bachelor of Technology, Information Technology · CGPA 9.04 / 10</p>
+      </div>
+      <div class="when"><b>Sep 2018 – May 2022</b>Pollachi, India</div>
+    </div>
+    <ul class="certs" style="margin-top:1.6rem">
+      <li>Business English Certificate Vantage<span>Cambridge Assessment English</span></li>
+      <li>Programming in Java<span>NPTEL</span></li>
+      <li>Cybersecurity Essentials<span>Cisco · ICT Academy</span></li>
+      <li>Windows Presentation Foundation Masterclass<span>Udemy</span></li>
+      <li>Python Certification<span>Spoken Tutorial, IIT Bombay</span></li>
+      <li>Google Code Jam 2021<span>Certificate, Qualification Round</span></li>
+    </ul>
+  </section>
+
+  <section id="contact" aria-labelledby="h-contact">
+    <div class="sec-head"><span class="n">06</span><h2 id="h-contact">Contact</h2></div>
+    <div class="contact">
+      <p class="big">Want to talk backend systems, malware analysis or system design? Write to me.</p>
+      <ul class="links">
+        <li><a href="mailto:muraliprasanthd@gmail.com">Email <span>muraliprasanthd@gmail.com</span></a></li>
+        <li><a href="https://www.linkedin.com/in/muraliprasanthd/" rel="me noopener">LinkedIn <span>in/muraliprasanthd ↗</span></a></li>
+        <li><a href="https://leetcode.com/u/muraliprasanthd07/" rel="me noopener">LeetCode <span>u/muraliprasanthd07 ↗</span></a></li>
+        <li><a href="https://github.com/muraliprasanth" rel="me noopener">GitHub <span>muraliprasanth ↗</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap"><span>© <span id="yr">2026</span> Murali Prasanth D</span><span>Last updated 2026-11-16</span></div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement,key="theme";
+  try{var saved=localStorage.getItem(key);if(saved==="light"||saved==="dark"){root.setAttribute("data-theme",saved)}}catch(e){}
+  document.getElementById("theme").addEventListener("click",function(){
+    var cur=root.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+    var next=cur==="dark"?"light":"dark";
+    root.setAttribute("data-theme",next);
+    try{localStorage.setItem(key,next)}catch(e){}
+  });
+  document.getElementById("yr").textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
