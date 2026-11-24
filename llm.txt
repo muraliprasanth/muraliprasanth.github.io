@@ -1,0 +1,16 @@
+# Murali Prasanth D
+
+> Backend developer and malware analyst. Builds the storage, analysis and automation systems behind malware intelligence: millions of files, 1 TB+ of samples, pipelines that stay fast and reliable.
+
+## Pages
+
+- [Portfolio](https://muraliprasanth.github.io/): work, skills, projects and how to get in touch
+
+## Other public pages on this address
+
+- [Saving Videos Offline](https://muraliprasanth.github.io/video-options/): a practical guide, see its own llms.txt
+- [Palkova Space](https://muraliprasanth.github.io/palkova/): a copy of the link page at https://palkova.pages.dev/
+
+## Notes
+
+- Only resume-level work detail is shown. Feedback can be sent from the box at the bottom of the portfolio.
