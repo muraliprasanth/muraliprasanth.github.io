@@ -9,7 +9,6 @@
 ## Other public pages on this address
 
 - [Saving Videos Offline](https://muraliprasanth.github.io/video-options/): a practical guide, see its own llms.txt
-- [Palkova Space](https://muraliprasanth.github.io/palkova/): a copy of the link page at https://palkova.pages.dev/
 
 ## Notes
 
